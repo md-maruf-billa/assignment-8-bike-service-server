@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  customerId String   @unique() @default(uuid())
+  name       String
+  email      String   @unique()
+  phone      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt()
+  bikes      Bike[]
+
+  @@map("customer")
+}
+
+enum Status {
+  pending
+  in_progress
+  done
+}
+
+model Bike {
+  bikeId     String    @unique() @default(uuid())
+  brand      String
+  model      String
+  year       Int
+  customerId String
+  Customer   Customer  @relation(fields: [customerId], references: [customerId])
+  services   Service[]
+
+  @@map("bike")
+}
+
+model Service {
+  serviceId      String    @unique() @default(uuid())
+  bikeId         String
+  serviceDate    DateTime
+  completionDate DateTime?
+  description    String
+  status         Status
+  bikeBikeId     String
+  Bike           Bike      @relation(fields: [bikeBikeId], references: [bikeId])
+}
