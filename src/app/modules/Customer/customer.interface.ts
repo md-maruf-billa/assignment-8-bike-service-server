@@ -3,3 +3,8 @@ export interface ICreateCustomer {
     email: string;
     phone: string
 }
+
+export interface IUpdateCustomer {
+    name?: string;
+    phone?: string
+}
