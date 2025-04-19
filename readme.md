@@ -3,8 +3,8 @@
 
 The Bike Servicing Management API is a backend service built to manage operations at a bike servicing center. It supports full CRUD functionality for customers, bikes, and service records, while also offering special endpoints for assigning and completing services. Built with modern web technologies, this system ensures streamlined service tracking, customer management, and overdue service monitoring.
 ### 🔗Live links
-- #### live Link - ``
-- #### Repo Link - ``
+- #### live Link - `https://bikeserviceassignmet.vercel.app/`
+- #### Repo Link - `https://github.com/md-maruf-billa/assignment-8-bike-service-server`
 
 ### Setup Guide
 - `Clone this Repo`
