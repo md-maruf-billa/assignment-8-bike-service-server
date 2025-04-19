@@ -25,10 +25,9 @@ CREATE TABLE "Service" (
     "serviceId" TEXT NOT NULL,
     "bikeId" TEXT NOT NULL,
     "serviceDate" TIMESTAMP(3) NOT NULL,
-    "completionDate" TIMESTAMP(3) NOT NULL,
+    "completionDate" TIMESTAMP(3),
     "description" TEXT NOT NULL,
-    "status" "Status" NOT NULL,
-    "bikeBikeId" TEXT
+    "status" "Status" NOT NULL
 );
 
 -- CreateIndex
@@ -47,4 +46,4 @@ CREATE UNIQUE INDEX "Service_serviceId_key" ON "Service"("serviceId");
 ALTER TABLE "bike" ADD CONSTRAINT "bike_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "customer"("customerId") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Service" ADD CONSTRAINT "Service_bikeBikeId_fkey" FOREIGN KEY ("bikeBikeId") REFERENCES "bike"("bikeId") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Service" ADD CONSTRAINT "Service_bikeId_fkey" FOREIGN KEY ("bikeId") REFERENCES "bike"("bikeId") ON DELETE RESTRICT ON UPDATE CASCADE;

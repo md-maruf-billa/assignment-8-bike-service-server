@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Customer {
@@ -44,6 +45,5 @@ model Service {
   completionDate DateTime?
   description    String
   status         Status
-  bikeBikeId     String
-  Bike           Bike      @relation(fields: [bikeBikeId], references: [bikeId])
+  Bike           Bike      @relation(fields: [bikeId], references: [bikeId])
 }
